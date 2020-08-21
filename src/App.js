@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPhones } from './redux/phones/actions';
 import { getPhones } from './redux/phones/selectors';
@@ -10,14 +10,13 @@ const App = () => {
   const dispatch = useDispatch();
   const phones = useSelector(getPhones);
 
-  const handleButton = () => {
+  useEffect(() => {
     dispatch(setPhones(phonesData));
-  };
+  });
 
   return (
     <div>
       <Header />
-      <button onClick={handleButton}>Get phones</button>
       <PhoneList phones={phones} />
     </div>
   );
