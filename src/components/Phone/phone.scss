@@ -1,0 +1,52 @@
+.phone {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  width: 80%;
+
+  @include tablet {
+    width: auto;
+  }
+
+  &__imgContainer {
+    height: 200px;
+    width: 200px;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__name {
+    color: $primary-color;
+    font-size: $font-medium;
+  }
+
+  &__priceContainer {
+    background-color: $primary-color;
+    font-size: $font-large;
+    padding: 8px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(20%, 20%);
+    border-radius: 4px;
+  }
+
+  &__price {
+    color: $light-color;
+    font-weight: bold;
+
+    &::after {
+      content: ' €';
+      font-size: $font-small;
+      font-weight: normal;
+    }
+  }
+}

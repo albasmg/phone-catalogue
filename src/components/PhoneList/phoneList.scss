@@ -1,0 +1,14 @@
+.phoneList {
+  @include unstyled-list;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  width: 100%;
+
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

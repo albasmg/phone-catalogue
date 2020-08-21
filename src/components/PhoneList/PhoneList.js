@@ -3,7 +3,7 @@ import Phone from '../Phone/Phone';
 
 const PhoneList = ({ phones }) => {
   return (
-    <ul>
+    <ul className="phoneList">
       {phones.map(({ name, manufacturer, price, imageFileName, id }) => (
         <li key={id}>
           <Phone
