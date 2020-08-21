@@ -11,6 +11,7 @@ const PhoneList = ({ phones }) => {
             imageFileName={imageFileName}
             manufacturer={manufacturer}
             price={price}
+            id={id}
           />
         </li>
       ))}
