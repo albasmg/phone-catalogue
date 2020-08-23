@@ -13,8 +13,9 @@ const App = () => {
   const phones = useSelector(getPhones);
 
   useEffect(() => {
-    getDataFromApi().then((data) => {
-      dispatch(setPhones(data));
+    getDataFromApi().then((res) => {
+      const phones = res.data;
+      dispatch(setPhones(phones));
     });
   }, [dispatch]);
 
