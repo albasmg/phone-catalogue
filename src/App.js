@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPhones } from './redux/phones/actions';
@@ -6,16 +6,19 @@ import { getPhones } from './redux/phones/selectors';
 import Header from './components/Header/Header';
 import PhoneList from './components/PhoneList/PhoneList';
 import PhoneDetails from './components/PhoneDetail/PhoneDetail';
+import Loader from './components/Loader/Loader';
 import { getDataFromApi } from './redux/phones/api';
 
 const App = () => {
   const dispatch = useDispatch();
   const phones = useSelector(getPhones);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     getDataFromApi().then((res) => {
-      const phones = res.data;
-      dispatch(setPhones(phones));
+      dispatch(setPhones(res.data));
+      setIsLoading(false);
     });
   }, [dispatch]);
 
@@ -40,6 +43,8 @@ const App = () => {
       return <p>This phone has not been found</p>;
     }
   };
+
+  if (isLoading) return <Loader />;
 
   return (
     <div>
