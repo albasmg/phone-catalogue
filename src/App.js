@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPhones } from './redux/phones/actions';
-import { getPhones } from './redux/phones/selectors';
+import { setPhones } from './services/phones/actions';
+import { getPhones } from './services/phones/selectors';
 import Header from './components/Header/Header';
 import PhoneList from './components/PhoneList/PhoneList';
 import PhoneDetails from './components/PhoneDetail/PhoneDetail';
 import Loader from './components/Loader/Loader';
-import { getDataFromApi } from './redux/phones/api';
+import { getDataFromApi } from './services/phones/api';
 
 const App = () => {
   const dispatch = useDispatch();
