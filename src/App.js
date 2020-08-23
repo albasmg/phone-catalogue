@@ -7,14 +7,18 @@ import phonesData from './data/phones.json';
 import Header from './components/Header/Header';
 import PhoneList from './components/PhoneList/PhoneList';
 import PhoneDetails from './components/PhoneDetail/PhoneDetail';
+import { getDataFromApi } from './redux/phones/api';
 
 const App = () => {
   const dispatch = useDispatch();
   const phones = useSelector(getPhones);
 
   useEffect(() => {
-    dispatch(setPhones(phonesData));
-  });
+    getDataFromApi().then((data) => {
+      console.log(data);
+      dispatch(setPhones(data));
+    });
+  }, []);
 
   const renderPhoneDetail = (props) => {
     const routePhoneId = parseInt(props.match.params.phoneId);
