@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPhones } from './redux/phones/actions';
 import { getPhones } from './redux/phones/selectors';
-import phonesData from './data/phones.json';
 import Header from './components/Header/Header';
 import PhoneList from './components/PhoneList/PhoneList';
 import PhoneDetails from './components/PhoneDetail/PhoneDetail';
@@ -15,10 +14,9 @@ const App = () => {
 
   useEffect(() => {
     getDataFromApi().then((data) => {
-      console.log(data);
       dispatch(setPhones(data));
     });
-  }, []);
+  }, [dispatch]);
 
   const renderPhoneDetail = (props) => {
     const routePhoneId = parseInt(props.match.params.phoneId);
