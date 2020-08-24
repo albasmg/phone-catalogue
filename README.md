@@ -12,4 +12,4 @@ To install this project you'll have to run the following command inside the foll
 To run this project in development mode, you'll have to run:
 
 `npm start`in root dir: this will start the client side app in [http://localhost:3000](http://localhost:3000) </br>
-`npm run start-api`in /server dir: this will startt the server side app in [http://localhost:5000](http://localhost:5000)
+`npm run start-api`in /server dir: this will start the server side app in [http://localhost:5000](http://localhost:5000)
