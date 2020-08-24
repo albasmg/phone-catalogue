@@ -70,13 +70,16 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Searcher
-        onSearchChange={handleSearchChange}
-        searcherValue={searcherValue}
-      />
       <Switch>
         <Route exact path="/">
-          <PhoneList phones={getFilteredPhones()} />
+          <Searcher
+            onSearchChange={handleSearchChange}
+            searcherValue={searcherValue}
+          />
+          <PhoneList
+            phones={getFilteredPhones()}
+            searcherValue={searcherValue}
+          />
         </Route>
         <Route path="/phones/:phoneId" render={renderPhoneDetail} />
       </Switch>

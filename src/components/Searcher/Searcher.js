@@ -23,6 +23,7 @@ const Searcher = ({ onSearchChange, searcherValue }) => {
 
 Searcher.propTypes = {
   onSearchChange: PropTypes.func.isRequired,
+  searcherValue: PropTypes.string.isRequired,
 };
 
 export default Searcher;
