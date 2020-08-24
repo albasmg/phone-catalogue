@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import mapPhoneImages from './mapPhoneImages';
 
 const Phone = ({ name, imageFileName, manufacturer, price, id }) => {
@@ -21,6 +22,14 @@ const Phone = ({ name, imageFileName, manufacturer, price, id }) => {
       </div>
     </Link>
   );
+};
+
+Phone.propTypes = {
+  name: PropTypes.string.isRequired,
+  imageFileName: PropTypes.string.isRequired,
+  manufacturer: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default Phone;

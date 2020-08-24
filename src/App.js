@@ -37,6 +37,7 @@ const App = () => {
           processor={phone.processor}
           ram={phone.ram}
           imageFileName={phone.imageFileName}
+          price={phone.price}
         />
       );
     } else {

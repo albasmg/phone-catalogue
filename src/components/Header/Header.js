@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ name, imageFileName, manufacturer, price }) => {
+const Header = () => {
   return (
     <header className="header">
       <Link to={'/'}>
