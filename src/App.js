@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPhones } from './services/phones/actions';
 import { getPhones } from './services/phones/selectors';
@@ -41,7 +41,18 @@ const App = () => {
         />
       );
     } else {
-      return <p>This phone has not been found</p>;
+      return (
+        <div className="errorMessage">
+          <p className="errorMessage__error">Oops!</p>
+          <p className="errorMessage__msg">
+            This phone has not been found. You can go back to{' '}
+            <Link to={'/'}>
+              <span>all phones list</span>
+            </Link>
+            !
+          </p>
+        </div>
+      );
     }
   };
 
