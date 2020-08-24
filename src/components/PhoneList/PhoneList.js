@@ -29,6 +29,7 @@ const PhoneList = ({ phones, searcherValue }) => {
 
 PhoneList.propTypes = {
   phones: PropTypes.array.isRequired,
+  searcherValue: PropTypes.string.isRequired,
 };
 
 export default PhoneList;
