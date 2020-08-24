@@ -65,7 +65,7 @@ PhoneDetails.propTypes = {
   color: PropTypes.string.isRequired,
   screen: PropTypes.string.isRequired,
   processor: PropTypes.string.isRequired,
-  ram: PropTypes.string.isRequired,
+  ram: PropTypes.number.isRequired,
 };
 
 export default PhoneDetails;

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setPhones } from './services/phones/actions';
 import { getPhones } from './services/phones/selectors';
 import Header from './components/Header/Header';
+import Searcher from './components/Searcher/Searcher';
 import PhoneList from './components/PhoneList/PhoneList';
 import PhoneDetails from './components/PhoneDetail/PhoneDetail';
 import Loader from './components/Loader/Loader';
@@ -13,6 +14,7 @@ const App = () => {
   const dispatch = useDispatch();
   const phones = useSelector(getPhones);
   const [isLoading, setIsLoading] = useState(false);
+  const [searcherValue, setSearcherValue] = useState('');
 
   useEffect(() => {
     setIsLoading(true);
@@ -21,6 +23,13 @@ const App = () => {
       setIsLoading(false);
     });
   }, [dispatch]);
+
+  const handleSearchChange = (searchValue) => setSearcherValue(searchValue);
+
+  const getFilteredPhones = () =>
+    phones.filter(({ name }) =>
+      name.toLowerCase().includes(searcherValue.toLowerCase())
+    );
 
   const renderPhoneDetail = (props) => {
     const routePhoneId = parseInt(props.match.params.phoneId);
@@ -44,7 +53,7 @@ const App = () => {
       return (
         <div className="errorMessage">
           <p className="errorMessage__error">Oops!</p>
-          <p className="errorMessage__msg">
+          <p>
             This phone has not been found. You can go back to{' '}
             <Link to={'/'}>
               <span>all phones list</span>
@@ -61,9 +70,13 @@ const App = () => {
   return (
     <div>
       <Header />
+      <Searcher
+        onSearchChange={handleSearchChange}
+        searcherValue={searcherValue}
+      />
       <Switch>
         <Route exact path="/">
-          <PhoneList phones={phones} />
+          <PhoneList phones={getFilteredPhones()} />
         </Route>
         <Route path="/phones/:phoneId" render={renderPhoneDetail} />
       </Switch>

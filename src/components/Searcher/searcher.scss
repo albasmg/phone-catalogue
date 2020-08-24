@@ -1,0 +1,20 @@
+.searcher {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  width: 100%;
+
+  &__input {
+    border: none;
+    width: 250px;
+    padding-left: 2px;
+    border-bottom: 2px solid $primary-color;
+    color: $primary-color;
+    font-weight: lighter;
+    outline: none;
+
+    &::placeholder {
+      color: lightgrey;
+    }
+  }
+}
